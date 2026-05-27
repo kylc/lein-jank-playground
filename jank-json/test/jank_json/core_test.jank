@@ -1,0 +1,7 @@
+(ns jank-json.core-test
+  (:require [clojure.test :refer [deftest testing is]]
+            [jank-json.core :refer [format-json]]))
+
+(deftest format-json-test
+  (testing "format-json formats"
+    (is (= "{\n  \"a\": 5\n}" (format-json "{\"a\" : 5}")))))

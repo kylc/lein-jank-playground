@@ -1,0 +1,12 @@
+(ns json-formatter.main
+  (:require [clojure.string :as string]
+            ;; from: jank-json
+            [jank-json.core :as json])
+  ;; from: jank-glfw
+  (:include "GLFW/glfw3.h"))
+
+(defn -main [& args]
+  (let [s (string/join " " args)]
+    (if (string/blank? s)
+      (println "usage: lein run {\"some\": \"json\"}")
+      (println (json/format-json s)))))

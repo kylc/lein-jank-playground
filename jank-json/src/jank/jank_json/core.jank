@@ -1,0 +1,5 @@
+(ns jank-json.core
+  (:include "jank_json.hpp"))
+
+(defn format-json [s]
+  (cpp/jank.json.format (cpp/cast cpp/std.string s)))
