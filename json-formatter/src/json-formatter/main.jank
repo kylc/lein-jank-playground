@@ -6,6 +6,7 @@
   (:include "GLFW/glfw3.h"))
 
 (defn -main [& args]
+  (println (cpp/glfwGetVersionString))
   (let [s (string/join " " args)]
     (if (string/blank? s)
       (println "usage: lein run {\"some\": \"json\"}")

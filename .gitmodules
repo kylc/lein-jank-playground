@@ -1,0 +1,3 @@
+[submodule "jank-json/json"]
+	path = jank-json/json
+	url = https://github.com/nlohmann/json
