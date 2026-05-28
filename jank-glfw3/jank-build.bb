@@ -1,9 +1,14 @@
 (require '[clojure.string :as string]
-         '[babashka.fs :as fs]
          '[babashka.process :as proc])
 
 (defn pkg-config [pc-name var]
-  (string/trim-newline (:out (proc/sh ["pkg-config" pc-name "--variable" var]))))
+  (-> (proc/sh ["pkg-config" pc-name "--variable" var])
+      proc/check
+      :out
+      string/trim-newline))
+
+(binding [*out* *err*]
+  (println "This is what stderr looks like"))
 
 (let [pc-name "glfw3"]
   (println (str "jank-build::link-path=" (pkg-config pc-name "libdir")))

@@ -5,4 +5,8 @@
   :middleware [leiningen.jank/middleware]
   :main json-formatter.main
   :dependencies [[org.clojars.kylc/jank-json "0.1-SNAPSHOT"]
-                 [org.clojars.kylc/jank-glfw3 "0.1-SNAPSHOT"]])
+                 [org.clojars.kylc/jank-glfw3 "0.1-SNAPSHOT"]]
+  :profiles {:base    {:jank {:output-dir         "target/debug"
+                              :optimization-level 0}}
+             :release {:jank {:output-dir         "target/release"
+                              :optimization-level 2}}})
