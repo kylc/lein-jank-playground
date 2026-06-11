@@ -1,17 +1,13 @@
+;; Demo of a build script which invokes the CMake helper (referred via
+;; project.clj :build-dependencies).
+
 (require '[babashka.fs :as fs]
-         '[babashka.process :as proc])
+         '[jank.build.cmake :as cmake])
 
-(let [{:keys [src-dir build-dir out-dir optimization-level]} *input*]
-  (proc/shell ["cmake"
-               (str "-DCMAKE_BUILD_TYPE=" (if (pos? optimization-level) "Release" "Debug"))
-               ;; No network connection so we must manually specify the
-               ;; FetchContent source.
-               (str "-DFETCHCONTENT_SOURCE_DIR_JSON=" (fs/path src-dir "json"))
-               ;; Place output files as instructed by the env.
-               (str "-DCMAKE_INSTALL_PREFIX=" out-dir)
-               "-DCMAKE_INSTALL_INCLUDEDIR=include"
-               "-B" build-dir
-               src-dir])
-  (proc/shell ["cmake" "--build" build-dir "--target" "install"])
+(let [{:keys [src-dir out-dir]} *input*]
+  ;; Override the FetchContent source dir to the local checkout, since we can't
+  ;; download it when building in the sandbox.
+  (cmake/build *input* {:defines {"JUST_AN_EXAMPLE_DEF" "1"}})
 
-  (println (str "jank-build::include-path=" (fs/path out-dir "include"))))
+  (println (str "jank-build::include-path=" (fs/path out-dir "include")))
+  (println (str "jank-build::link-path=" (fs/path out-dir "lib"))))

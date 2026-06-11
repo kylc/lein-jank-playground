@@ -4,6 +4,5 @@
   :plugins [[org.jank-lang/lein-jank "0.7"]]
   :middleware [leiningen.jank/middleware]
   :dependencies [[org.clojars.kylc/jank-json-sys "0.1-SNAPSHOT"]]
-  :verbatim-paths ["json" "include" "src/cpp"]
-  :resource-paths ["jank-build.bb" "CMakeLists.txt"]
+  :verbatim-paths ["CMakeLists.txt" "jank-build.bb" "json" "include" "src/cpp"]
   :source-paths ["src/jank"])

@@ -1,12 +1,6 @@
-cmake_minimum_required(VERSION 3.30)
-project(jank_json_sys VERSION 1.0 LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.16)
+project(jank_json_sys VERSION 3.12.0)
 
-include(FetchContent)
-FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz)
-FetchContent_MakeAvailable(json)
-
-include(GNUInstallDirs)
-install(
-  DIRECTORY "${json_SOURCE_DIR}/include/"
-  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
-)
+add_subdirectory(json)
+install(DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/json/include/"
+        DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
