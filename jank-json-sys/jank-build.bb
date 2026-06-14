@@ -9,5 +9,5 @@
   ;; download it when building in the sandbox.
   (cmake/build *input* {:defines {"JUST_AN_EXAMPLE_DEF" "1"}})
 
-  (println (str "jank-build::include-path=" (fs/path out-dir "include")))
-  (println (str "jank-build::link-path=" (fs/path out-dir "lib"))))
+  (println (str "jank-build::include-dir=" (fs/path out-dir "include")))
+  (println (str "jank-build::link-dir=" (fs/path out-dir "lib"))))

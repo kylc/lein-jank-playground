@@ -14,6 +14,6 @@
   (println "This is what stderr looks like"))
 
 (let [pc-name "glfw3"]
-  (println (str "jank-build::include-path=" (pkg-config pc-name "includedir")))
-  (println (str "jank-build::link-path=" (pkg-config pc-name "libdir")))
-  (println "jank-build::link-lib=glfw"))
+  (println (str "jank-build::include-dir=" (pkg-config pc-name "includedir")))
+  (println (str "jank-build::link-dir=" (pkg-config pc-name "libdir")))
+  (println "jank-build::link-library=glfw"))

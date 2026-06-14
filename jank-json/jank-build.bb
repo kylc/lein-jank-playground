@@ -23,6 +23,6 @@
   ;;   (fs/path out-dir "libjank_json.a")
   ;;   (fs/path build-dir "jank_json.o")])
 
-  (println (str "jank-build::include-path=" (fs/path out-dir "include")))
-  (println (str "jank-build::link-path=" (fs/path out-dir)))
-  (println "jank-build::link-lib=jank_json"))
+  (println (str "jank-build::include-dir=" (fs/path out-dir "include")))
+  (println (str "jank-build::link-dir=" (fs/path out-dir)))
+  (println "jank-build::link-library=jank_json"))
