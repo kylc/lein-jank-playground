@@ -3,6 +3,7 @@
 
 (defn -main [& args]
   (cpp/InitWindow 200 100 "raylib demo")
+  (cpp/SetTargetFPS 60)
 
   (while (cpp/! (cpp/WindowShouldClose))
     (let [time  (cpp/GetTime)
