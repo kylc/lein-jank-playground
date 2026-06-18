@@ -1,0 +1,13 @@
+(ns raylib-demo.main
+  (:include "raylib.h"))
+
+(defn -main [& args]
+  (cpp/InitWindow 200 100 "raylib demo")
+
+  (while (cpp/! (cpp/WindowShouldClose))
+    (cpp/BeginDrawing)
+    (cpp/ClearBackground cpp/RAYWHITE)
+    (cpp/DrawText "Hello jank!" 50 30 20 cpp/BLACK)
+    (cpp/EndDrawing))
+
+  (cpp/CloseWindow))

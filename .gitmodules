@@ -1,3 +1,6 @@
 [submodule "jank-json-sys/json"]
 	path = jank-json-sys/json
 	url = https://github.com/nlohmann/json
+[submodule "jank-raylib-sys/raylib"]
+	path = jank-raylib-sys/raylib
+	url = https://github.com/raysan5/raylib
