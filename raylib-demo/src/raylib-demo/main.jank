@@ -5,9 +5,11 @@
   (cpp/InitWindow 200 100 "raylib demo")
 
   (while (cpp/! (cpp/WindowShouldClose))
-    (cpp/BeginDrawing)
-    (cpp/ClearBackground cpp/RAYWHITE)
-    (cpp/DrawText "Hello jank!" 50 30 20 cpp/BLACK)
-    (cpp/EndDrawing))
+    (let [time  (cpp/GetTime)
+          color (cpp/ColorFromHSV (mod (* 100.0 time) 360.0) 0.5 0.5)]
+      (cpp/BeginDrawing)
+      (cpp/ClearBackground cpp/RAYWHITE)
+      (cpp/DrawText "Hello jank!" 50 30 20 color)
+      (cpp/EndDrawing)))
 
   (cpp/CloseWindow))
