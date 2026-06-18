@@ -4,4 +4,4 @@
   :plugins [[org.jank-lang/lein-jank "0.7"]]
   :middleware [leiningen.jank/middleware]
   :build-dependencies [[org.clojars.kylc/jank-build-cmake "0.1-SNAPSHOT"]]
-  :verbatim-paths ["CMakeLists.txt" "raylib"])
+  :verbatim-paths ["raylib"])
